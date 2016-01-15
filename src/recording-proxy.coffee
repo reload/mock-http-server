@@ -48,6 +48,7 @@ exports.RecordingProxy = class RecordingProxy
         target = null
         if self.target
           target = self.target
+          req.headers.host = target
         else if req.headers?.host
           if isLocalHost(req.headers.host)
             logErrorToConsole "localhost used without --record=target"
