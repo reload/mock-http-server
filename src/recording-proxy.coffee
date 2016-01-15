@@ -81,7 +81,7 @@ exports.RecordingProxy = class RecordingProxy
         firstSentAt: (new Date()).getTime()
 
       delete outgoing.headers.host if isLocalHost(outgoing.headers?.host)
-      delete outgoing.headers['Connection']
+      outgoing.headers['Connection'] = 'close'
       delete outgoing.headers['connection']
 
       # Issue request to target
